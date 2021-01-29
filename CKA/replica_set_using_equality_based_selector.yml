@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: "myrs"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      env: prod
+  template:
+    metadata:
+      name: "myweb"
+      labels:
+        env: prod
+    spec:
+      containers:
+        - name: "mycont1"
+          image: "cankush625/webpage"
