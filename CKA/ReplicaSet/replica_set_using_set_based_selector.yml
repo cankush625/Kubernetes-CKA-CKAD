@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrs1
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - { key: app, operator: In, values: [ myweb ] }
+  template:
+    metadata:
+      name: myweb
+      labels:
+        app: myweb
+    spec:
+      containers:
+        - name: my-web-1
+          image: cankush625/webpage
