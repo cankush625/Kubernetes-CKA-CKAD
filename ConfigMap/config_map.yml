@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: my-web-conf
+data:
+  apache.conf: "Listen 80\r\n"

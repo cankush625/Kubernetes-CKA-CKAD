@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-1
+spec:
+  containers:
+    - name: my-web
+      image: cankush625/webpage
+      volumeMounts:
+        - name: config-volume
+          mountPath: /etc/httpd/conf.d/
+  volumes:
+    - name: config-volume
+      configMap:
+        name: my-web-conf
