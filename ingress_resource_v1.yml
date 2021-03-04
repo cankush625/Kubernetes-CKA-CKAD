@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: www.example.com
+      http:
+        paths:
+          - path: /search
+            pathType: Prefix
+            backend:
+              service:
+                name: search
+              port:
+                number: 80
+          - path: /mail
+            pathType: Prefix
+            backend:
+              service:
+                name: mail
+              port:
+                number: 80
