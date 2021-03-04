@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: my-daemon-set
+  labels:
+    type: ds
+spec:
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      name: my-web
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: my-web-app
+          image: cankush625/webpage
