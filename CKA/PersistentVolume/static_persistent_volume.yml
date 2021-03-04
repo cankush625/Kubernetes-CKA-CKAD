@@ -9,4 +9,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/storage"
+    path: "D:\\Github Repositories\\Kubernetes-CKA-CKAD\\CKA\\PersistentVolume\\mystorage\\"

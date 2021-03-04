@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deploy-2
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - { key: app, operator: In, values: [ myweb ] }
+  template:
+    metadata:
+      name: myweb
+      labels:
+        app: myweb
+    spec:
+      volumes:
+        - name: myweb-pvc
+          persistentVolumeClaim:
+            claimName: my-pvc-1
+      containers:
+        - name: my-web-2
+          image: cankush625/webpage
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: myweb-pvc
