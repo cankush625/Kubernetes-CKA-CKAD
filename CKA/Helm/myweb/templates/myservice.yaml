@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mysvc
+  name: mysvc
+spec:
+  ports:
+  - name: 80-80
+    port: {{ .Values.myservice.port }}
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: mysvc
+  type: {{ .Values.myservice.type }}
+status:
+  loadBalancer: {}
