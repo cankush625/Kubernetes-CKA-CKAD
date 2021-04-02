@@ -13,6 +13,10 @@ Resources:
 
 [Ingress](Ingress)
 
+[InitContainers](InitContainers)
+
+[MultiContainerPod](MultiContainerPod)
+
 [NetworkPolicy](NetworkPolicy)
 
 [PersistentVolume](PersistentVolume)
@@ -30,6 +34,8 @@ Resources:
 [Secrets](Secrets)
 
 [Services](Services)
+
+[StatefulSet](StatefulSet)
 
 [StorageClass](StorageClass)
 
