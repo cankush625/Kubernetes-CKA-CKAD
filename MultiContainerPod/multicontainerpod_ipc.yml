@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multipod
+spec:
+  containers:
+    - name: first
+      image: allingeek/ch6_ipc
+      command: ["./ipc", "-producer"]
+    - name: second
+      image: allingeek/ch6_ipc
+      command: ["./ipc", "-consumer"]
+  restartPolicy: Never
