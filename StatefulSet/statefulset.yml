@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  labels:
+    app: web
+spec:
+  ports:
+    - port: 80
+      name: web
+  clusterIP: None
+  selector:
+    app: web
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: web
+  serviceName: web-service
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: myweb
+          image: cankush625/webpage
+          ports:
+            - containerPort: 80
+              name: web
+  volumeClaimTemplates:
+    - metadata:
+        name: my-vol
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: my-storage-class
+        resources:
+          requests:
+            storage: 2Gi
